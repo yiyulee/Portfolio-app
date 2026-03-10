@@ -1,0 +1,16 @@
+import streamlit as st
+import pandas as pd
+
+st.title("My Portfolio")
+
+data = {
+    "종목": ["AAPL","NVDA","TSLA"],
+    "매수금액": [1000,2000,1500],
+    "현재금액": [1200,2600,1400]
+}
+
+df = pd.DataFrame(data)
+
+df["수익률"] = (df["현재금액"] - df["매수금액"]) / df["매수금액"] * 100
+
+st.dataframe(df)
